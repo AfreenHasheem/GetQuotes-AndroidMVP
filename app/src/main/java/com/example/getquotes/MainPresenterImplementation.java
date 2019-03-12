@@ -1,13 +1,13 @@
 package com.example.getquotes;
 
-public class MainPresenterImplementation implements MainPresenter, GetQuoteInteractor.onFinishedListener {
+public class MainPresenterImplementation implements MainContract.MainPresenter, MainContract.GetQuoteInteractor.onFinishedListener {
 
     //objects of the View Interface and Model Interface(i.e Interactor) created here
 
-    private MainView mainView;
-    private GetQuoteInteractor getQuoteInteractor;
+    private MainContract.MainView mainView;
+    private MainContract.GetQuoteInteractor getQuoteInteractor;
 
-    public MainPresenterImplementation(MainView mainView, GetQuoteInteractor getQuoteInteractor) {
+    public MainPresenterImplementation(MainContract.MainView mainView, MainContract.GetQuoteInteractor getQuoteInteractor) {
         this.mainView = mainView;
         this.getQuoteInteractor = getQuoteInteractor;
     }

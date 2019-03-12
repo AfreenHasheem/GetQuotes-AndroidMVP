@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import android.os.Handler;
 
-public class GetQuoteInteractorImplementation implements GetQuoteInteractor {
+public class GetQuoteInteractorImplementation implements MainContract.GetQuoteInteractor {
     //This class contains an ArrayList of Quotes
 
     private List<String> quoteList = Arrays.asList(
@@ -16,9 +16,15 @@ public class GetQuoteInteractorImplementation implements GetQuoteInteractor {
             "Lighten up, just enjoy life, smile more, laugh more, and don't get so worked up about things."
     );
 
-    @Override
-    public void getNextQuote(final onFinishedListener onFinishedListener) {
+    private String getRandomQuote() {
+        Random random = new Random();
+        int index = random.nextInt(quoteList.size());
+        return quoteList.get(index);
 
+    }
+
+    @Override
+    public void getNextQuote(final MainContract.GetQuoteInteractor.onFinishedListener onFinishedListener) {
         //on completion fo the handler, the onFinished() in the GetQuoteInteractor interface will be triggered
         new Handler().postDelayed(new Runnable(){
 
@@ -28,14 +34,6 @@ public class GetQuoteInteractorImplementation implements GetQuoteInteractor {
 
             }
         }, 1200);
-
-
-    }
-
-    private String getRandomQuote() {
-        Random random = new Random();
-        int index = random.nextInt(quoteList.size());
-        return quoteList.get(index);
 
     }
 }

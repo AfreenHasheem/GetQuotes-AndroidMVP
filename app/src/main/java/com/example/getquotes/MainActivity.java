@@ -7,12 +7,12 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends AppCompatActivity implements MainContract.MainView {
 
     private TextView textView;
     private Button button;
     private ProgressBar progressBar;
-    MainPresenter mainPresenter;
+    MainContract.MainPresenter mainPresenter;
 
 
     @Override
